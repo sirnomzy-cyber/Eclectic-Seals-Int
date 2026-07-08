@@ -530,13 +530,23 @@ body.dark .filter-btn{ border-color: rgba(255,255,255,0.15); color: var(--white)
 @media (max-width: 720px){
   body{ font-size:16px; }
   .section{ padding: 80px 0; }
-  .grid-3, .grid-4, .bento{ grid-template-columns: 1fr; }
+  .grid-2, .grid-3, .grid-4, .bento{ grid-template-columns: 1fr; }
   .masonry{ column-count:1; }
   .testi-grid{ columns:1; }
   .achieve-grid{ grid-template-columns: repeat(2,1fr); }
   .form-card{ padding: 28px; }
   .cta-band{ padding: 44px 22px; }
   .float-stack{ right:16px; bottom:16px; }
+  .footer-grid{ grid-template-columns: 1fr; gap: 36px; }
+  .newsletter-mini{ flex-wrap: wrap; }
+  .newsletter-mini input{ min-width: 0; flex-basis: 100%; }
+}
+
+/* ---------- Mobile overflow safeguard (does not affect desktop) ---------- */
+@media (max-width: 900px){
+  html{ overflow-x: hidden; }
+  .footer-grid{ min-width: 0; }
+  .footer-grid > div{ min-width: 0; }
 }
 
 </style>
