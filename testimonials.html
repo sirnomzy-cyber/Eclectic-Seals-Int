@@ -344,6 +344,25 @@ button{ font-family: inherit; cursor: pointer; }
 .service-bullet .tick{ display:inline-flex; width:16px; height:16px; color: var(--gold); flex-shrink:0; }
 @media (max-width: 720px){ .service-bullets{ grid-template-columns: 1fr; } }
 
+.expertise-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+.expertise-item{
+  display:flex; align-items:center; gap:14px; padding: 16px 18px; background: var(--white);
+  border-radius: 14px; box-shadow: var(--shadow-soft); transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.expertise-item:hover{ transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+.expertise-item .icon{ width:42px; height:42px; border-radius:12px; flex-shrink:0; }
+.expertise-item .icon svg{ width:20px; height:20px; }
+.expertise-item span{ font-weight:700; color: var(--navy); font-size:14.5px; }
+@media (max-width: 720px){ .expertise-grid{ grid-template-columns: 1fr; } }
+
+.spotlight-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+.spotlight-item{ display:flex; align-items:flex-start; gap:14px; padding: 18px; background: var(--white); border-radius:14px; box-shadow: var(--shadow-soft); }
+.spotlight-item .icon{ width:42px; height:42px; border-radius:12px; flex-shrink:0; }
+.spotlight-item .icon svg{ width:19px; height:19px; }
+.spotlight-item strong{ display:block; color: var(--navy); font-size:14px; margin-bottom:3px; }
+.spotlight-item span{ color:#5b6370; font-size:14px; }
+@media (max-width: 720px){ .spotlight-grid{ grid-template-columns: 1fr; } }
+
 .testi-marquee{ overflow:hidden; -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent); mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent); }
 .testi-track-marquee{ display:flex; gap:24px; width:max-content; animation: testi-scroll 42s linear infinite; }
 .testi-marquee:hover .testi-track-marquee{ animation-play-state: paused; }
@@ -526,6 +545,16 @@ body.dark .filter-btn{ border-color: rgba(255,255,255,0.15); color: var(--white)
   .form-card{ padding: 28px; }
   .cta-band{ padding: 44px 22px; }
   .float-stack{ right:16px; bottom:16px; }
+  .footer-grid{ grid-template-columns: 1fr; gap: 36px; }
+  .newsletter-mini{ flex-wrap: wrap; }
+  .newsletter-mini input{ min-width: 0; flex-basis: 100%; }
+}
+
+/* ---------- Mobile overflow safeguard (does not affect desktop) ---------- */
+@media (max-width: 900px){
+  html{ overflow-x: hidden; }
+  .footer-grid{ min-width: 0; }
+  .footer-grid > div{ min-width: 0; }
 }
 
 </style>
