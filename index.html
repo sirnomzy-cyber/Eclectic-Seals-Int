@@ -206,7 +206,17 @@ button{ font-family: inherit; cursor: pointer; }
 .hero p.lead{ max-width: 620px; font-size: 16.5px; color: rgba(255,255,255,0.78); margin-bottom: 36px; }
 .hero-badges{ display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin-top: 48px; }
 .hero-badge{ display:flex; align-items:center; gap:10px; padding: 12px 20px; border-radius: 100px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); backdrop-filter: blur(10px); font-size: 14px; color: rgba(255,255,255,0.85); }
-.hero-badges-label{ font-weight:800; color: var(--white); font-size:15px; letter-spacing:0.04em; text-transform:uppercase; margin-right:4px; }
+.hero-badges-label{
+  position:relative; font-weight:800; color: var(--white); font-size:15px; letter-spacing:0.04em; text-transform:uppercase; margin-right:10px;
+  padding-bottom:12px;
+}
+.hero-badges-label::after{
+  content:"";
+  position:absolute; left:0; bottom:0; width:100%; height:8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10' preserveAspectRatio='none'%3E%3Cpath d='M0 6 Q 10 0, 20 6 T 40 6 T 60 6 T 80 6 T 100 6 T 120 6' stroke='%23F5810D' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
 .hero-list{ list-style:none; display:grid; grid-template-columns: 1fr 1fr; gap:9px 28px; max-width:560px; margin: 0 0 32px; padding:0; }
 .hero-list li{ position:relative; padding-left:20px; color:rgba(255,255,255,0.82); font-size:15px; }
 .hero-list li::before{ content:""; position:absolute; left:0; top:8px; width:7px; height:7px; border-radius:50%; background: var(--gold); }
@@ -625,7 +635,7 @@ body.dark .filter-btn{ border-color: rgba(255,255,255,0.15); color: var(--white)
       <a href="/request-quote" class="btn btn-primary">Request a Free Consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="/projects" class="btn btn-outline">View Our Projects</a>
     </div>
-    <div class="hero-badges"><div class="hero-badges-label">Why Eclectic Seal</div><div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Quality Craftsmanship</span></div><div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Trusted Professionals</span></div><div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Premium Customer Service</span></div></div>
+    <div class="hero-badges"><div class="hero-badges-label">Why Eclectic Seal</div><div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>10+ Years of Industry Experience</span></div><div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Quality Craftsmanship</span></div><div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Trusted Professionals</span></div><div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Premium Customer Service</span></div></div>
   </div>
 </header>
 <section class="section" id="main">
