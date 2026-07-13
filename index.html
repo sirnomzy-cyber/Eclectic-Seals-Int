@@ -244,7 +244,7 @@ button{ font-family: inherit; cursor: pointer; }
 .split-media:hover img{ transform: scale(1.06); }
 
 /* ---------- Bento / cards ---------- */
-.bento{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.bento{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .card{ background: var(--white); border-radius: var(--radius-md); padding: 36px 30px; box-shadow: var(--shadow-soft); transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease); border: 1px solid rgba(15,23,42,0.05); display:flex; flex-direction:column; }
 .card:hover{ transform: translateY(-10px); box-shadow: var(--shadow-lift); }
 .icon{ width:56px; height:56px; border-radius:16px; background: var(--gold-10); display:flex; align-items:center; justify-content:center; color: var(--copper); }
@@ -313,6 +313,10 @@ button{ font-family: inherit; cursor: pointer; }
 .masonry .project-card{ break-inside: avoid; margin-bottom: 24px; }
 .masonry .project-card:nth-child(3n+1){ aspect-ratio: 4/5; }
 .masonry .project-card:nth-child(3n+2){ aspect-ratio: 4/3; }
+
+.gallery-img{ border-radius: var(--radius-md); overflow:hidden; box-shadow: var(--shadow-soft); break-inside: avoid; margin-bottom: 24px; }
+.gallery-img img{ width:100%; height:auto; display:block; transition: transform 0.7s var(--ease); }
+.gallery-img:hover img{ transform: scale(1.05); }
 
 .filter-bar{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom: 48px; }
 .filter-btn{ padding: 10px 22px; border-radius: 100px; border: 1px solid rgba(15,23,42,0.15); background: transparent; font-size:14px; font-weight:600; color: var(--navy); transition: all 0.3s var(--ease); }
@@ -760,53 +764,38 @@ body.dark .filter-btn{ border-color: rgba(255,255,255,0.15); color: var(--white)
       <p>In-house paint production for interiors, exteriors and protective coatings.</p>
       <ul><li>Premium interior paints</li><li>Exterior paints</li><li>Protective coatings</li><li>Custom colours</li></ul>
       <a href="/services" class="learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div></div></div></section><section class="section section--dark"><div class="container"><div class="section-head center"><div class="eyebrow" style="justify-content:center;">Why Eclectic Seals</div><h2>Why Clients Choose Eclectic Seals Int&rsquo;l</h2></div><div class="grid-3 stagger"><div class="feature-dark reveal" style="--i:0"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Experienced Professionals</h3><p>A multidisciplinary team of architects, engineers, and designers with decades of combined experience.</p></div><div class="feature-dark reveal" style="--i:1"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5z"/></svg></div><h3>Superior Craftsmanship</h3><p>Every joint, finish and fixture is executed to a standard we'd accept in our own homes.</p></div><div class="feature-dark reveal" style="--i:2"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V9l6-4 6 4v12M9 21V13h6v8M15 21V11l6-3v13"/></svg></div><h3>Quality Materials</h3><p>We specify and, where possible, manufacture the materials that go into your project.</p></div><div class="feature-dark reveal" style="--i:3"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>On-Time Delivery</h3><p>Realistic schedules, tracked weekly, and communicated to you at every stage.</p></div><div class="feature-dark reveal" style="--i:4"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg></div><h3>Transparent Pricing</h3><p>Detailed quotations with no hidden costs and clear payment milestones.</p></div><div class="feature-dark reveal" style="--i:5"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 6.5 7 1-5 5 1.2 7L12 18l-6.2 3.5 1.2-7-5-5 7-1z"/></svg></div><h3>Customer Satisfaction</h3><p>A 95% client satisfaction rate built on listening first and building second.</p></div></div></div></section><section class="section"><div class="container"><div class="section-head center"><div class="eyebrow" style="justify-content:center;">Portfolio</div><h2>Featured Projects</h2><p>A selection of recent work across interiors, renovation, construction and landscaping.</p></div><div class="grid-3 stagger"><div class="project-card reveal" style="--i:0">
-      <img src="images/p1.jpg" alt="Luxury Duplex Interior, a project by Eclectic Seals Int'l in Asokoro, Abuja" loading="lazy">
+    </div><div class="card reveal" style="--i:8">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M4 10c1.2 1 2.4 1 3.6 0s2.4-1 3.6 0 2.4 1 3.6 0 2.4-1 3.6 0"/><path d="M4 15c1.2 1 2.4 1 3.6 0s2.4-1 3.6 0 2.4 1 3.6 0 2.4-1 3.6 0"/></svg></div>
+      <h3>Swimming Pool Construction &amp; Maintenance</h3>
+      <p>Pool builds and upkeep engineered to perform for years, not just look good on day one.</p>
+      <ul><li>Pool construction</li><li>Filtration & plumbing</li><li>Water treatment</li><li>Routine maintenance</li></ul>
+      <a href="/services" class="learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div></div></div></section><section class="section section--dark"><div class="container"><div class="section-head center"><div class="eyebrow" style="justify-content:center;">Why Eclectic Seals</div><h2>Why Clients Choose Eclectic Seals Int&rsquo;l</h2></div><div class="grid-3 stagger"><div class="feature-dark reveal" style="--i:0"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Experienced Professionals</h3><p>A multidisciplinary team of architects, engineers, and designers with decades of combined experience.</p></div><div class="feature-dark reveal" style="--i:1"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5z"/></svg></div><h3>Superior Craftsmanship</h3><p>Every joint, finish and fixture is executed to a standard we'd accept in our own homes.</p></div><div class="feature-dark reveal" style="--i:2"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V9l6-4 6 4v12M9 21V13h6v8M15 21V11l6-3v13"/></svg></div><h3>Quality Materials</h3><p>We specify and, where possible, manufacture the materials that go into your project.</p></div><div class="feature-dark reveal" style="--i:3"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>On-Time Delivery</h3><p>Realistic schedules, tracked weekly, and communicated to you at every stage.</p></div><div class="feature-dark reveal" style="--i:4"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg></div><h3>Transparent Pricing</h3><p>Detailed quotations with no hidden costs and clear payment milestones.</p></div><div class="feature-dark reveal" style="--i:5"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 6.5 7 1-5 5 1.2 7L12 18l-6.2 3.5 1.2-7-5-5 7-1z"/></svg></div><h3>Customer Satisfaction</h3><p>A 95% client satisfaction rate built on listening first and building second.</p></div></div></div></section><section class="section"><div class="container"><div class="section-head center"><div class="eyebrow" style="justify-content:center;">Portfolio</div><h2>Featured Projects</h2><p>A selection of recent work across interiors, renovation, construction and landscaping.</p></div><div class="grid-3 stagger"><div class="project-card reveal" data-gallery='["images/projects/ongoing-renovation-of-residential-building-at-mabushi-abuja/1.jpg", "images/projects/ongoing-renovation-of-residential-building-at-mabushi-abuja/2.jpg", "images/projects/ongoing-renovation-of-residential-building-at-mabushi-abuja/3.jpg"]' data-title="Residential Building Renovation &mdash; Mabushi, Abuja" style="--i:0">
+      <img src="images/projects/ongoing-renovation-of-residential-building-at-mabushi-abuja/1.jpg" alt="Residential Building Renovation, a project by Eclectic Seals Int'l in Mabushi, Abuja" loading="lazy">
+      <div class="gallery-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="14" r="3.5"/></svg>3 Photos</div>
+      <div class="project-info">
+        <span class="project-tag">Renovation &middot; Ongoing</span>
+        <h3>Residential Building Renovation</h3>
+        <div class="loc">Mabushi, Abuja</div>
+        <span class="view-gallery">View Gallery <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </div><div class="project-card reveal" data-gallery='["images/projects/floating-stairs-design/1.jpg", "images/projects/floating-stairs-design/2.jpg", "images/projects/floating-stairs-design/3.jpg", "images/projects/floating-stairs-design/4.jpg", "images/projects/floating-stairs-design/5.jpg", "images/projects/floating-stairs-design/6.jpg", "images/projects/floating-stairs-design/7.jpg", "images/projects/floating-stairs-design/8.jpg", "images/projects/floating-stairs-design/9.jpg", "images/projects/floating-stairs-design/10.jpg"]' data-title="Floating Stairs Design &mdash; Abuja" style="--i:1">
+      <img src="images/projects/floating-stairs-design/1.jpg" alt="Floating Stairs Design, a project by Eclectic Seals Int'l in Abuja" loading="lazy">
+      <div class="gallery-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="14" r="3.5"/></svg>10 Photos</div>
       <div class="project-info">
         <span class="project-tag">Interior Design</span>
-        <h3>Luxury Duplex Interior</h3>
-        <div class="loc">Asokoro, Abuja</div>
-        <a href="/projects">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <h3>Floating Stairs Design</h3>
+        <div class="loc">Abuja</div>
+        <span class="view-gallery">View Gallery <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
-    </div><div class="project-card reveal" style="--i:1">
-      <img src="images/p2.jpg" alt="Corporate Office Fit-Out, a project by Eclectic Seals Int'l in Maitama, Abuja" loading="lazy">
+    </div><div class="project-card reveal" data-gallery='["images/projects/gypsum-and-pop-ceiling-designs/1.jpg", "images/projects/gypsum-and-pop-ceiling-designs/2.jpg", "images/projects/gypsum-and-pop-ceiling-designs/3.jpg", "images/projects/gypsum-and-pop-ceiling-designs/4.jpg", "images/projects/gypsum-and-pop-ceiling-designs/5.jpg", "images/projects/gypsum-and-pop-ceiling-designs/6.jpg", "images/projects/gypsum-and-pop-ceiling-designs/7.jpg", "images/projects/gypsum-and-pop-ceiling-designs/8.jpg", "images/projects/gypsum-and-pop-ceiling-designs/9.jpg", "images/projects/gypsum-and-pop-ceiling-designs/10.jpg"]' data-title="Gypsum &amp; POP Ceiling Designs &mdash; Abuja" style="--i:2">
+      <img src="images/projects/gypsum-and-pop-ceiling-designs/1.jpg" alt="Gypsum &amp; POP Ceiling Designs, a project by Eclectic Seals Int'l in Abuja" loading="lazy">
+      <div class="gallery-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="14" r="3.5"/></svg>10 Photos</div>
       <div class="project-info">
-        <span class="project-tag">Commercial</span>
-        <h3>Corporate Office Fit-Out</h3>
-        <div class="loc">Maitama, Abuja</div>
-        <a href="/projects">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div><div class="project-card reveal" style="--i:2">
-      <img src="images/p3.jpg" alt="Modern Landscape Design, a project by Eclectic Seals Int'l in Jabi, Abuja" loading="lazy">
-      <div class="project-info">
-        <span class="project-tag">Landscaping</span>
-        <h3>Modern Landscape Design</h3>
-        <div class="loc">Jabi, Abuja</div>
-        <a href="/projects">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div><div class="project-card reveal" style="--i:3">
-      <img src="images/p4.jpg" alt="Luxury Apartment Renovation, a project by Eclectic Seals Int'l in Life Camp, Abuja" loading="lazy">
-      <div class="project-info">
-        <span class="project-tag">Renovation</span>
-        <h3>Luxury Apartment Renovation</h3>
-        <div class="loc">Life Camp, Abuja</div>
-        <a href="/projects">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div><div class="project-card reveal" style="--i:4">
-      <img src="images/p5.jpg" alt="Commercial Building Construction, a project by Eclectic Seals Int'l in Lugbe, Abuja" loading="lazy">
-      <div class="project-info">
-        <span class="project-tag">Construction</span>
-        <h3>Commercial Building Construction</h3>
-        <div class="loc">Lugbe, Abuja</div>
-        <a href="/projects">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div><div class="project-card reveal" style="--i:5">
-      <img src="images/gal2.jpg" alt="Premium Residential Furnishing, a project by Eclectic Seals Int'l in Gwarinpa, Abuja" loading="lazy">
-      <div class="project-info">
-        <span class="project-tag">Furnishing</span>
-        <h3>Premium Residential Furnishing</h3>
-        <div class="loc">Gwarinpa, Abuja</div>
-        <a href="/projects">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="project-tag">Interior Finishing</span>
+        <h3>Gypsum &amp; POP Ceiling Designs</h3>
+        <div class="loc">Abuja</div>
+        <span class="view-gallery">View Gallery <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
     </div></div><div class="text-center" style="margin-top:48px;"><a href="/projects" class="btn btn-outline-dark">View All Projects</a></div></div></section><section class="section section--dark"><div class="container"><div class="section-head center"><div class="eyebrow" style="justify-content:center;">How We Work</div><h2>Our Process</h2></div><div class="process-track"><div class="process-step reveal-scale" style="--i:1"><div class="seal"><span>01</span></div><h4>Initial Consultation</h4><p>We listen to your brief, goals and budget.</p></div><div class="process-step reveal-scale" style="--i:2"><div class="seal"><span>02</span></div><h4>Site Inspection</h4><p>Our team assesses the site and constraints.</p></div><div class="process-step reveal-scale" style="--i:3"><div class="seal"><span>03</span></div><h4>Design &amp; Planning</h4><p>Concepts, drawings and material specs are developed.</p></div><div class="process-step reveal-scale" style="--i:4"><div class="seal"><span>04</span></div><h4>Quotation</h4><p>A transparent, itemised quote is issued.</p></div><div class="process-step reveal-scale" style="--i:5"><div class="seal"><span>05</span></div><h4>Project Execution</h4><p>Work proceeds to schedule with regular updates.</p></div><div class="process-step reveal-scale" style="--i:6"><div class="seal"><span>06</span></div><h4>Quality Inspection</h4><p>Every stage is checked against our quality standards.</p></div><div class="process-step reveal-scale" style="--i:7"><div class="seal"><span>07</span></div><h4>Project Delivery</h4><p>Handover, walkthrough and after-sales support.</p></div></div></div></section><section class="section section--light"><div class="container"><div class="section-head center"><div class="eyebrow" style="justify-content:center;">Client Voices</div><h2>What Our Clients Say</h2></div></div><div class="testi-marquee"><div class="testi-track-marquee"><div class="testi-card-mini">
       <div class="stars">&starf;&starf;&starf;&starf;&starf;</div>
@@ -884,6 +873,19 @@ body.dark .filter-btn{ border-color: rgba(255,255,255,0.15); color: var(--white)
       </div>
     </div>
   </div></section>
+<div class="lightbox" id="project-lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" aria-label="Close gallery">&times;</button>
+    <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous image">&larr;</button>
+    <div class="lightbox-stage">
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-caption">
+        <h3 id="lightbox-title"></h3>
+        <span id="lightbox-counter"></span>
+      </div>
+    </div>
+    <button type="button" class="lightbox-nav lightbox-next" aria-label="Next image">&rarr;</button>
+    <div class="lightbox-thumbs" id="lightbox-thumbs"></div>
+  </div>
 <footer class="footer">
   <svg class="footer-lines" viewBox="0 0 1400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <path d="M0 350 L200 350 L200 200 L500 200 L500 350 L800 350 L800 100 L1100 100 L1100 350 L1400 350" stroke="#F5810D" stroke-width="1" fill="none"/>

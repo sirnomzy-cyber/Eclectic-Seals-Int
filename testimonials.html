@@ -244,7 +244,7 @@ button{ font-family: inherit; cursor: pointer; }
 .split-media:hover img{ transform: scale(1.06); }
 
 /* ---------- Bento / cards ---------- */
-.bento{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.bento{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .card{ background: var(--white); border-radius: var(--radius-md); padding: 36px 30px; box-shadow: var(--shadow-soft); transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease); border: 1px solid rgba(15,23,42,0.05); display:flex; flex-direction:column; }
 .card:hover{ transform: translateY(-10px); box-shadow: var(--shadow-lift); }
 .icon{ width:56px; height:56px; border-radius:16px; background: var(--gold-10); display:flex; align-items:center; justify-content:center; color: var(--copper); }
@@ -313,6 +313,10 @@ button{ font-family: inherit; cursor: pointer; }
 .masonry .project-card{ break-inside: avoid; margin-bottom: 24px; }
 .masonry .project-card:nth-child(3n+1){ aspect-ratio: 4/5; }
 .masonry .project-card:nth-child(3n+2){ aspect-ratio: 4/3; }
+
+.gallery-img{ border-radius: var(--radius-md); overflow:hidden; box-shadow: var(--shadow-soft); break-inside: avoid; margin-bottom: 24px; }
+.gallery-img img{ width:100%; height:auto; display:block; transition: transform 0.7s var(--ease); }
+.gallery-img:hover img{ transform: scale(1.05); }
 
 .filter-bar{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom: 48px; }
 .filter-btn{ padding: 10px 22px; border-radius: 100px; border: 1px solid rgba(15,23,42,0.15); background: transparent; font-size:14px; font-weight:600; color: var(--navy); transition: all 0.3s var(--ease); }
