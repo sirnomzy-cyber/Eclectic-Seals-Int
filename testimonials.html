@@ -318,6 +318,26 @@ button{ font-family: inherit; cursor: pointer; }
 .gallery-img img{ width:100%; height:auto; display:block; transition: transform 0.7s var(--ease); }
 .gallery-img:hover img{ transform: scale(1.05); }
 
+/* ---------- Blog feed ---------- */
+.blog-feed{ max-width: 800px; margin: 0 auto; display:flex; flex-direction:column; gap: 8px; }
+.blog-post{ background: var(--white); border-radius: var(--radius-lg); padding: 36px 40px; box-shadow: var(--shadow-soft); margin-bottom: 28px; }
+.blog-post-header{ display:flex; align-items:center; gap:16px; margin-bottom:14px; flex-wrap:wrap; }
+.blog-post-date{ font-size:13px; color:#8a9099; }
+.blog-post h2{ font-size:23px; margin-bottom:14px; }
+.blog-post-body-text{ color:#5b6370; font-size:15.5px; line-height:1.7; margin-bottom: 20px; }
+.blog-media-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; }
+.blog-media-grid--1{ grid-template-columns: 1fr; }
+.blog-media-grid--2{ grid-template-columns: 1fr 1fr; }
+.blog-media-thumb{ border-radius:12px; overflow:hidden; aspect-ratio: 4/3; cursor:pointer; position:relative; }
+.blog-media-thumb img{ width:100%; height:100%; object-fit:cover; transition: transform 0.5s var(--ease); }
+.blog-media-thumb:hover img{ transform: scale(1.06); }
+.blog-video{ grid-column: 1 / -1; border-radius:12px; overflow:hidden; aspect-ratio:16/9; background:#000; }
+.blog-video iframe, .blog-video video{ width:100%; height:100%; border:0; display:block; }
+@media (max-width: 640px){
+  .blog-post{ padding:26px 22px; }
+  .blog-media-grid, .blog-media-grid--2, .blog-media-grid--3, .blog-media-grid--4{ grid-template-columns: repeat(2,1fr); }
+}
+
 .filter-bar{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom: 48px; }
 .filter-btn{ padding: 10px 22px; border-radius: 100px; border: 1px solid rgba(15,23,42,0.15); background: transparent; font-size:14px; font-weight:600; color: var(--navy); transition: all 0.3s var(--ease); }
 .filter-btn.active, .filter-btn:hover{ background: var(--navy); color: var(--white); border-color: var(--navy); }
@@ -522,6 +542,9 @@ button{ font-family: inherit; cursor: pointer; }
 .faq-search-wrap input{ width:100%; padding: 18px 24px 18px 54px; border-radius:100px; border:1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color:var(--white); font-size:16px; backdrop-filter: blur(10px); }
 .faq-search-wrap input::placeholder{ color: rgba(255,255,255,0.5); }
 .faq-search-wrap svg{ position:absolute; left:22px; top:50%; transform: translateY(-50%); width:18px; height:18px; color: rgba(255,255,255,0.5); }
+.faq-search-wrap--light input{ background: var(--bg); border-color:#e2e5ea; color: var(--navy); }
+.faq-search-wrap--light input::placeholder{ color:#8a9099; }
+.faq-search-wrap--light svg{ color:#8a9099; }
 
 /* ---------- Timeline vertical (project detail) ---------- */
 .timeline-v{ position:relative; padding-left: 40px; }
@@ -677,7 +700,7 @@ body.dark .filter-btn{ border-color: rgba(255,255,255,0.15); color: var(--white)
   </div>
 </nav>
 <div class="mobile-menu">
-  <a href="/">Home</a><a href="/about">About</a><a href="/services">Services</a><a href="/projects">Projects</a><a href="/faq">FAQ</a><a href="/contact">Contact Us</a><a href="/why-us">Why Choose Us</a><a href="/testimonials">Testimonials</a><a href="/request-quote">Request a Quote</a>
+  <a href="/">Home</a><a href="/about">About</a><a href="/services">Services</a><a href="/projects">Projects</a><a href="/faq">FAQ</a><a href="/contact">Contact Us</a><a href="/why-us">Why Choose Us</a><a href="/testimonials">Testimonials</a><a href="/blog">Blog</a><a href="/request-quote">Request a Quote</a>
 </div>
 <header class="hero hero--page">
   <div class="hero-bg" style="background-image:url('images/hero_testimonials.jpg');"></div>
@@ -793,6 +816,7 @@ body.dark .filter-btn{ border-color: rgba(255,255,255,0.15); color: var(--white)
         <ul>
           <li><a href="/why-us">Why Choose Us</a></li>
           <li><a href="/testimonials">Testimonials</a></li>
+          <li><a href="/blog">Blog</a></li>
           <li><a href="/faq">FAQ</a></li>
           <li><a href="/request-quote">Request a Quote</a></li>
           <li><a href="/contact">Contact Us</a></li>
@@ -859,6 +883,7 @@ body.dark .filter-btn{ border-color: rgba(255,255,255,0.15); color: var(--white)
     accordions();
     projectFilters();
     projectLightbox();
+    loadBlog();
     faqSearch();
     blogSearch();
     quoteFormWizard();
@@ -1135,14 +1160,15 @@ body.dark .filter-btn{ border-color: rgba(255,255,255,0.15); color: var(--white)
       document.body.style.overflow = "";
     }
 
-    document.querySelectorAll("[data-gallery]").forEach(function (trigger) {
-      trigger.addEventListener("click", function (e) {
-        e.preventDefault();
-        var imgs;
-        try { imgs = JSON.parse(trigger.getAttribute("data-gallery")); } catch (err) { return; }
-        var t = trigger.getAttribute("data-title") || "";
-        openGallery(imgs, 0, t);
-      });
+    document.addEventListener("click", function (e) {
+      var trigger = e.target.closest("[data-gallery]");
+      if (!trigger) return;
+      e.preventDefault();
+      var imgs;
+      try { imgs = JSON.parse(trigger.getAttribute("data-gallery")); } catch (err) { return; }
+      var startIndex = parseInt(trigger.getAttribute("data-start") || "0", 10) || 0;
+      var t = trigger.getAttribute("data-title") || "";
+      openGallery(imgs, startIndex, t);
     });
 
     closeBtn.addEventListener("click", closeGallery);
@@ -1165,6 +1191,105 @@ body.dark .filter-btn{ border-color: rgba(255,255,255,0.15); color: var(--white)
       else if (dx < -50) show(current + 1);
       touchStartX = null;
     });
+  }
+
+  /* ---------------- Blog feed (loaded from data/blog-posts.json) ---------------- */
+  function loadBlog() {
+    var feed = document.getElementById("blog-feed");
+    if (!feed) return;
+
+    fetch("data/blog-posts.json")
+      .then(function (res) {
+        if (!res.ok) throw new Error("Failed to load posts");
+        return res.json();
+      })
+      .then(function (posts) {
+        posts.sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
+        renderBlogFilters(posts);
+        renderBlogFeed(posts);
+        wireBlogSearch(posts);
+      })
+      .catch(function () {
+        feed.innerHTML = '<p style="color:#8a9099;">Updates could not be loaded right now. Please check back shortly.</p>';
+      });
+
+    function formatDate(iso) {
+      var d = new Date(iso + "T00:00:00");
+      if (isNaN(d)) return iso;
+      return d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+    }
+
+    function mediaHtml(post) {
+      var images = post.media.filter(function (m) { return m.type === "image"; }).map(function (m) { return m.src; });
+      var html = "";
+      post.media.forEach(function (m, i) {
+        if (m.type === "image") {
+          var gallery = JSON.stringify(images).replace(/"/g, "&quot;");
+          var startIndex = images.indexOf(m.src);
+          html += '<div class="blog-media-thumb" data-gallery="' + gallery + '" data-start="' + startIndex + '" data-title="' + (post.title || "").replace(/"/g, "&quot;") + '">' +
+            '<img src="' + m.src + '" alt="' + (post.title || "").replace(/"/g, "&quot;") + '" loading="lazy"></div>';
+        } else if (m.type === "youtube" && m.id) {
+          html += '<div class="blog-video"><iframe src="https://www.youtube.com/embed/' + m.id + '" title="' + (post.title || "").replace(/"/g, "&quot;") + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>';
+        } else if (m.type === "video" && m.src) {
+          html += '<div class="blog-video"><video controls preload="metadata" src="' + m.src + '"></video></div>';
+        }
+      });
+      return html ? '<div class="blog-media-grid blog-media-grid--' + Math.min(post.media.length, 4) + '">' + html + '</div>' : "";
+    }
+
+    function renderBlogFilters(posts) {
+      var wrap = document.getElementById("blog-filters");
+      if (!wrap) return;
+      var cats = [];
+      posts.forEach(function (p) { if (p.category && cats.indexOf(p.category) === -1) cats.push(p.category); });
+      cats.forEach(function (c) {
+        var btn = document.createElement("button");
+        btn.className = "filter-btn";
+        btn.setAttribute("data-filter", c);
+        btn.textContent = c;
+        wrap.appendChild(btn);
+      });
+      wrap.addEventListener("click", function (e) {
+        var btn = e.target.closest(".filter-btn");
+        if (!btn) return;
+        wrap.querySelectorAll(".filter-btn").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var filter = btn.getAttribute("data-filter");
+        document.querySelectorAll(".blog-post").forEach(function (card) {
+          card.style.display = (filter === "all" || card.getAttribute("data-category") === filter) ? "" : "none";
+        });
+      });
+    }
+
+    function renderBlogFeed(posts) {
+      if (!posts.length) {
+        feed.innerHTML = '<p style="color:#8a9099;">No updates yet — check back soon.</p>';
+        return;
+      }
+      feed.innerHTML = posts.map(function (p) {
+        return '<article class="blog-post" data-category="' + (p.category || "") + '">' +
+          '<div class="blog-post-header">' +
+          '<span class="blog-cat">' + (p.category || "") + '</span>' +
+          '<span class="blog-post-date">' + formatDate(p.date) + '</span>' +
+          '</div>' +
+          '<h2>' + (p.title || "") + '</h2>' +
+          '<p class="blog-post-body-text">' + (p.body || p.excerpt || "") + '</p>' +
+          mediaHtml(p) +
+          '</article>';
+      }).join("");
+    }
+
+    function wireBlogSearch(posts) {
+      var input = document.getElementById("blog-search");
+      if (!input) return;
+      input.addEventListener("input", function () {
+        var q = input.value.toLowerCase();
+        var filtered = posts.filter(function (p) {
+          return (p.title + " " + p.body + " " + p.category).toLowerCase().indexOf(q) > -1;
+        });
+        renderBlogFeed(filtered);
+      });
+    }
   }
 
   /* ---------------- FAQ search + category filter ---------------- */

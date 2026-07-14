@@ -295,6 +295,26 @@ button{ font-family: inherit; cursor: pointer; }
 .gallery-img img{ width:100%; height:auto; display:block; transition: transform 0.7s var(--ease); }
 .gallery-img:hover img{ transform: scale(1.05); }
 
+/* ---------- Blog feed ---------- */
+.blog-feed{ max-width: 800px; margin: 0 auto; display:flex; flex-direction:column; gap: 8px; }
+.blog-post{ background: var(--white); border-radius: var(--radius-lg); padding: 36px 40px; box-shadow: var(--shadow-soft); margin-bottom: 28px; }
+.blog-post-header{ display:flex; align-items:center; gap:16px; margin-bottom:14px; flex-wrap:wrap; }
+.blog-post-date{ font-size:13px; color:#8a9099; }
+.blog-post h2{ font-size:23px; margin-bottom:14px; }
+.blog-post-body-text{ color:#5b6370; font-size:15.5px; line-height:1.7; margin-bottom: 20px; }
+.blog-media-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; }
+.blog-media-grid--1{ grid-template-columns: 1fr; }
+.blog-media-grid--2{ grid-template-columns: 1fr 1fr; }
+.blog-media-thumb{ border-radius:12px; overflow:hidden; aspect-ratio: 4/3; cursor:pointer; position:relative; }
+.blog-media-thumb img{ width:100%; height:100%; object-fit:cover; transition: transform 0.5s var(--ease); }
+.blog-media-thumb:hover img{ transform: scale(1.06); }
+.blog-video{ grid-column: 1 / -1; border-radius:12px; overflow:hidden; aspect-ratio:16/9; background:#000; }
+.blog-video iframe, .blog-video video{ width:100%; height:100%; border:0; display:block; }
+@media (max-width: 640px){
+  .blog-post{ padding:26px 22px; }
+  .blog-media-grid, .blog-media-grid--2, .blog-media-grid--3, .blog-media-grid--4{ grid-template-columns: repeat(2,1fr); }
+}
+
 .filter-bar{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom: 48px; }
 .filter-btn{ padding: 10px 22px; border-radius: 100px; border: 1px solid rgba(15,23,42,0.15); background: transparent; font-size:14px; font-weight:600; color: var(--navy); transition: all 0.3s var(--ease); }
 .filter-btn.active, .filter-btn:hover{ background: var(--navy); color: var(--white); border-color: var(--navy); }
@@ -499,6 +519,9 @@ button{ font-family: inherit; cursor: pointer; }
 .faq-search-wrap input{ width:100%; padding: 18px 24px 18px 54px; border-radius:100px; border:1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color:var(--white); font-size:16px; backdrop-filter: blur(10px); }
 .faq-search-wrap input::placeholder{ color: rgba(255,255,255,0.5); }
 .faq-search-wrap svg{ position:absolute; left:22px; top:50%; transform: translateY(-50%); width:18px; height:18px; color: rgba(255,255,255,0.5); }
+.faq-search-wrap--light input{ background: var(--bg); border-color:#e2e5ea; color: var(--navy); }
+.faq-search-wrap--light input::placeholder{ color:#8a9099; }
+.faq-search-wrap--light svg{ color:#8a9099; }
 
 /* ---------- Timeline vertical (project detail) ---------- */
 .timeline-v{ position:relative; padding-left: 40px; }

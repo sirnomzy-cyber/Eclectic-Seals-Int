@@ -1,0 +1,50 @@
+[
+  {
+    "id": "website-launch",
+    "date": "2026-07-14",
+    "category": "Site Update",
+    "title": "Our New Website Is Live",
+    "excerpt": "We've just launched a brand new home for Eclectic Seals Int'l online, with a full portfolio of our recent work.",
+    "body": "We're excited to launch our new website. It brings together our services, our project portfolio, and the easiest way yet to reach our team for a consultation or quote. We'll be using this page to share project updates, completed work, and behind-the-scenes moments as we go — check back often.",
+    "media": [
+      { "type": "image", "src": "images/hero_home.jpg" }
+    ]
+  },
+  {
+    "id": "swimming-pool-launch",
+    "date": "2026-07-10",
+    "category": "New Service",
+    "title": "Now Offering Swimming Pool Construction &amp; Maintenance",
+    "excerpt": "Our newest service line covers everything from structural pool builds to ongoing water treatment and upkeep.",
+    "body": "We've expanded our services to include full swimming pool construction and maintenance — structural build, tiling and finishing, filtration and plumbing, water treatment, and routine upkeep. Whether you're building new or need a maintenance partner for an existing pool, our team can now handle it end to end.",
+    "media": [
+      { "type": "image", "src": "images/projects/swimming-pool-construction-and-maintenance/1.jpg" },
+      { "type": "image", "src": "images/projects/swimming-pool-construction-and-maintenance/4.jpg" },
+      { "type": "image", "src": "images/projects/swimming-pool-construction-and-maintenance/9.jpg" }
+    ]
+  },
+  {
+    "id": "liberia-embassy-complete",
+    "date": "2026-06-28",
+    "category": "Completed Project",
+    "title": "Project Complete: Republic of Liberia Embassy Renovation",
+    "excerpt": "A full renovation of the Liberia Embassy in Central Area, Abuja, taken from its original condition to a refreshed, modern finish.",
+    "body": "We're proud to have completed a full renovation of the Republic of Liberia Embassy in Central Area, Abuja. The project took the building from its original condition through to a refreshed, modern finish. See more from this project, along with the rest of our portfolio, on our Projects page.",
+    "media": [
+      { "type": "image", "src": "images/projects/renovation-of-the-republic-of-liberia-embassy/1.jpg" },
+      { "type": "image", "src": "images/projects/renovation-of-the-republic-of-liberia-embassy/4.jpg" }
+    ]
+  },
+  {
+    "id": "meet-the-team",
+    "date": "2026-06-15",
+    "category": "Behind The Scenes",
+    "title": "Meet The Team Behind Every Build",
+    "excerpt": "A quick introduction to the people who plan, manage and deliver every Eclectic Seals Int'l project.",
+    "body": "Every project we deliver is the result of a team working closely together, from initial consultation through to handover. Read more about our leadership team on our About page.",
+    "media": [
+      { "type": "image", "src": "images/team/md.jpg" },
+      { "type": "image", "src": "images/team/lead_designer.jpg" }
+    ]
+  }
+]
